@@ -7,12 +7,20 @@ const itemStyles = {
 }
 
 class Item extends Component {
+
+  handleClick = () => {
+    this.props.onRemove( this.props.item )
+  }
+
   render() {
     const { item } = this.props
 
     return (
       <div style={ itemStyles }>
-        { item.text }
+        <button onClick={ this.handleClick }>
+          x
+        </button>
+        <span>{ item.text }</span>
       </div>
     )
   }
@@ -37,6 +45,14 @@ class App extends Component {
     e.target[0].value = ''
   }
 
+  eliminar = (item) => {
+    this.setState( state => ({
+      list: state.list.filter(_item => {
+        return item.id !== _item.id
+      })
+    }))
+  }
+
   render () {
 
     return (
@@ -56,6 +72,7 @@ class App extends Component {
             <Item 
               key={ item.id }
               item={ item }
+              onRemove={ this.eliminar }
             />
           ))}
         </div>
