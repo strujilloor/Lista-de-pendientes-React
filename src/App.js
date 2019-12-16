@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 
+const itemStyles = {
+  padding: '1em',
+  borderBottom: '1px solid #CCC',
+  marginTop: '0.4em'
+}
 
 class Item extends Component {
   render() {
     const { item } = this.props
 
     return (
-      <div>
+      <div style={ itemStyles }>
         { item.text }
       </div>
     )
