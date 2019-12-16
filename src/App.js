@@ -12,8 +12,14 @@ class Item extends Component {
     this.props.onRemove( this.props.item )
   }
 
+  shouldComponentUpdate (nextProps, nextState) {
+    return nextProps.item.id !== this.props.item.id
+  }
+
   render() {
     const { item } = this.props
+
+    console.log('Render 🔥' + item.text)
 
     return (
       <div style={ itemStyles }>
