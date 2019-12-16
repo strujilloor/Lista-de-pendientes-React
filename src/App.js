@@ -63,7 +63,8 @@ class App extends Component {
 
     return (
       <div>
-        <h3>shouldComponentUpdate</h3>
+        <h2>Lista de pendientes</h2>
+        <h3>(shouldComponentUpdate)</h3>
         <form onSubmit={this.agregar}>
           <input 
             type="text" 
